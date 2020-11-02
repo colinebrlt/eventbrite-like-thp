@@ -24,8 +24,6 @@ class Event < ApplicationRecord
       errors.add(:duration, "should be a multiple of 5.") unless duration % 5 == 0
   end 
 
-  def event_send
-    UserMailer.event_email(self).deliver_now
-  end
+  
 
 end
