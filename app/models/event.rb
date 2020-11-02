@@ -17,13 +17,11 @@ class Event < ApplicationRecord
 
   def future_date
     errors.add(:start_date, "Event can't be in the past") unless
-      start_date > Date.now
+      start_date > Datetime.now
   end
 
   def multiple_of_five?
       errors.add(:duration, "should be a multiple of 5.") unless duration % 5 == 0
   end 
-
   
-
 end
