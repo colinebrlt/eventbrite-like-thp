@@ -5,6 +5,8 @@ class Attendance < ApplicationRecord
   after_create :attendance_send
 
   def attendance_send
-    UserMailer.attendance_email(user, event).deliver_now
+    event = self.event
+    event_admin = event.event_admin
+    UserMailer.attendance_email(event_admin, event).deliver_now
   end
 end
