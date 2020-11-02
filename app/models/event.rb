@@ -1,8 +1,6 @@
 class Event < ApplicationRecord
-  validate :future_date
-  validate :multiple_of_five?
-  validates :start_date, presence: true
-  validates :duration, presence: true, numericality: { greater_than_or_equal_to: 1 }
+  validates :start_date, presence: true, if: :future_date
+  validates :duration, presence: true, numericality: { greater_than_or_equal_to: 1 }, if: :multiple_of_five?
   validates :title, presence: true, length: { minimum: 5, maximum: 140 }
   validates :description, presence: true, length: { minimum: 20, maximum: 1000 }
   validates :price, presence: true, numericality: { greater_than_or_equal_to: 1, less_than_or_equal_to: 1000, only_integer: true }
@@ -10,14 +8,11 @@ class Event < ApplicationRecord
 
   has_many :users, through: :attendances
   has_many :attendances
-  belongs_to :user
   belongs_to :event_admin, class_name: "User"
-
-  after_create :event_send
 
   def future_date
     errors.add(:start_date, "Event can't be in the past") unless
-      start_date > Datetime.now
+      start_date > DateTime.now
   end
 
   def multiple_of_five?
