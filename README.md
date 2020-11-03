@@ -1,24 +1,28 @@
-# README
+## EVENTBRITE
+This website was made in pair-programming as part of a coding bootcamp.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Description
+This is an Eventbrite-like website made with Ruby on Rails, and the 'Devise' gem. 
+Its main functionalities are :
 
-Things you may want to cover:
+- Creating a user account (sign in, log in, log out)
+- Creating an event
+- Subscribing to an event
+- Sending email when a user creates an account and subscribes to an event
 
-* Ruby version
+# How to make it work
+In your terminal, run the following commands:
 
-* System dependencies
+```shell
+$ bundle install
+```
 
-* Configuration
+```shell
+$ rails db:migrate
+```
 
-* Database creation
+```shell
+$ rails server
+```
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Alternatively, the website has also been pushed on Heroku: https://eventbrite-rails-cbrlt.herokuapp.com

@@ -1,0 +1,51 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <br><br><br>
+    
+        <%= form_for @event do |f| %>
+          <h1 class="h3 mb-3 font-weight-normal text-center">Create your event</h1>
+          <br>
+
+
+          <% if @event.errors.any? %>
+            <% @event.errors.full_messages.each do |message| %>
+              <div class="alert alert-danger" role="alert">
+                <%= message %>
+              </div>
+            <% end %>
+          <% end %>
+
+          <div class="form-group">
+            <label>Title</label>
+            <%= f.text_field :title, class: "form-control" %>
+          </div>
+
+          <div class="form-group">
+            <label>Start date</label>
+            <%= f.text_field :start_date, class: "form-control" %>
+          </div>
+
+          <div class="form-group">
+            <label>Location</label>
+            <%= f.text_field :location, class: "form-control" %>
+          </div>
+
+          <div class="form-group">
+            <label>Price</label>
+            <%= f.text_field :price, class: "form-control" %>
+          </div>
+
+          <div class="form-group">
+            <label>Description</label>
+            <%= f.text_area :description, class: "form-control" %>
+          </div>
+
+          <div class="form-group">
+            <button type="submit" class="btn btn-outline-success">Create event</button>
+          </div>
+
+        <% end %>
+    </div>
+  </div>
+</div>
