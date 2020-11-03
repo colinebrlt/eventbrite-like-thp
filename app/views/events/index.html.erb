@@ -13,7 +13,7 @@
         <div class="col-md-4">
           <h2><%= event.title %></h2>
           <p><%= truncate(event.description, length: 250) %> </p>
-          <p><a class="btn btn-secondary" href="#" role="button">Check it out &raquo;</a></p>
+          <p><%= link_to "Check it out", event_path(event.id), :class => "btn btn-secondary" %></p>
         </div>
       <% end %>
     </div>
@@ -23,7 +23,3 @@
   </div> 
 
 </main>
-
-<footer class="container">
-  <p>&copy; Eventbrite by @The Hacking Project 2020</p>
-</footer>
