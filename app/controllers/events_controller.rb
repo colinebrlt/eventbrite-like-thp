@@ -1,5 +1,6 @@
 class EventsController < ApplicationController
   before_action :authenticate_user!, only: [:new]
+  
   def index
     @event = Event.all
   end
@@ -10,8 +11,7 @@ class EventsController < ApplicationController
 
   def create
     @event = Event.new(post_params)
-    @user = current_user
-    # @gossip.user = User.find_by(id: session[:user_id])
+    @event.event_admin = current_user
 
     if @event.save
       flash[:notice] = 'All good. Your event has been saved!'
@@ -24,8 +24,6 @@ class EventsController < ApplicationController
   def show
     @event = Event.find_by_id(params[:id])
   end 
-
-
 
   private 
 
