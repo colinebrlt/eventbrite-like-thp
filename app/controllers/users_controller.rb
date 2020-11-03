@@ -7,6 +7,10 @@ class UsersController < ApplicationController
     @admin_events = @user.admin_events
   end 
 
+  def edit
+    
+  end
+
   def check_user
     @user = User.find(params[:id])
     unless current_user.id == @user.id
