@@ -1,7 +1,7 @@
-## EVENTBRITE
+# Eventbrite
 This website was made in pair-programming as part of a coding bootcamp.
 
-# Description
+## Description
 This is an Eventbrite-like website made with Ruby on Rails, and the 'Devise' gem. 
 Its main functionalities are :
 
@@ -10,7 +10,7 @@ Its main functionalities are :
 - Subscribing to an event
 - Sending email when a user creates an account and subscribes to an event
 
-# How to make it work
+## How to make it work
 In your terminal, run the following commands:
 
 ```shell
