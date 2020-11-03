@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-6 offset-md-3">
-      <br><br><br>
+      <br>
 
         <% if @event.errors.any? %>
             <% @event.errors.full_messages.each do |message| %>
@@ -21,7 +21,7 @@
           </div>
 
           <div class="form-group">
-            <%= f.label :start_date, "Start date and time" %><br />
+            <%= f.label :start_date, "Start date and time (format: YYYY-MM-DD HH:MM:SS)" %><br />
             <%= f.text_field :start_date, autofocus: true, autocomplete: "YYYY-MM-DD HH-MM-SS", class: "form-control" %>
           </div>
 
@@ -34,7 +34,6 @@
             <label>Duration</label>
             <%= f.text_field :duration, autocomplete: "duration", class: "form-control" %>
           </div>
-          
 
           <div class="form-group">
             <label>Price</label>
