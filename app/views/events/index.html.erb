@@ -1,2 +1,29 @@
-<h1>Events#index</h1>
-<p>Find me in app/views/events/index.html.erb</p>
+<main role="main">
+  <div class="jumbotron">
+    <div class="container">
+      <h1 class="display-3">Welcome to Eventbrite!</h1>
+      <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
+      <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <% @event.each_with_index do |event, i| %>
+        <div class="col-md-4">
+          <h2><%= event.title %></h2>
+          <p><%= truncate(event.description, length: 250) %> </p>
+          <p><a class="btn btn-secondary" href="#" role="button">Check it out &raquo;</a></p>
+        </div>
+      <% end %>
+    </div>
+
+      <hr>
+
+  </div> 
+
+</main>
+
+<footer class="container">
+  <p>&copy; Eventbrite by @The Hacking Project 2020</p>
+</footer>

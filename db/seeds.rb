@@ -5,5 +5,5 @@ require 'faker'
 end
 
 5.times do
-  Event.create(start_date: DateTime.now + 60, title: Faker::Movie.title, duration: [15, 30, 60].sample, description: Faker::Lorem.sentence(word_count: 50 + rand(150)), price: Faker::Number.between(from: 15, to: 99), location: Faker::Address.city, event_admin: User.all.sample)
+  Event.create(start_date: DateTime.now + 60, title: Faker::Movie.title, duration: [15, 30, 60].sample, description: Faker::Lorem.sentence(word_count: 50 + rand(20)), price: Faker::Number.between(from: 15, to: 99), location: Faker::Address.city, event_admin: User.all.sample)
 end
