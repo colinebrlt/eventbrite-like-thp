@@ -1,0 +1,23 @@
+<div class="container text-center">
+  <h2 class="p-4"> <%= @user.first_name %> <%= @user.last_name %> </h2>
+
+  <p><b>Email:</b> <%= @user.email %></p>
+  <p class="p-3"><b>Description:</b> <%= @user.description %></p>
+
+  <h5 class="p-4"> All events created by <%= @user.first_name %> <%= @user.last_name %> :</h5>
+
+
+  <div class="container">
+    <div class="row">
+      <% @admin_events.each do |event| %>
+        <div class="col-md-4">
+          <h2><%= event.title %></h2>
+          <p><%= truncate(event.description, length: 250) %> </p>
+          <p><a class="btn btn-secondary" href="#" role="button">Check it out &raquo;</a></p>
+        </div>
+      <% end %>
+    </div>
+    <hr>
+  </div> 
+
+</div>
