@@ -9,4 +9,8 @@
   <p class="p-2"><b>Number of participants:</b> <%=  %></p>
   <p class="p-2"><b>Description:</b> <%= @event.description %></p>
 
+  <% if user_signed_in? && @event.event_admin != current_user%>
+      <%= link_to "Register to this event", '#', class: "btn btn-outline-secondary" %>
+  <%end%>
+
 </div>
