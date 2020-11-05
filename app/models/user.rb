@@ -8,6 +8,8 @@ class User < ApplicationRecord
   has_many :attendances, dependent: :destroy
   has_many :events, through: :attendances, dependent: :destroy
 
+  has_one_attached :avatar
+
   after_create :welcome_send
 
   def welcome_send

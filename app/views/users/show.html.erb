@@ -1,6 +1,12 @@
 <div class="container text-center">
   <h2 class="p-4"> <%= @user.first_name %> <%= @user.last_name %> </h2>
 
+  <%if @user.avatar.attached?%>
+      <%= image_tag @user.avatar, alt: 'avatar' %>
+  <%else%>
+      <p>=== No profile picture ===</p>
+  <%end%>
+
   <p><b>Email:</b> <%= @user.email %></p>
   <p class="p-3"><b>Description:</b> <%= @user.description %></p>
 
