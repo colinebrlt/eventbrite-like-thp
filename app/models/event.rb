@@ -10,6 +10,9 @@ class Event < ApplicationRecord
   has_many :attendances
   has_many :users, through: :attendances
 
+  has_one_attached :picture
+
+
   def future_date
     errors.add(:start_date, "Event can't be in the past") unless
       start_date > DateTime.now

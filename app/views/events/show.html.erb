@@ -1,6 +1,10 @@
 <div class="container text-center">
   <h2 class="p-4"> <%= @event.title %> </h2>
-
+  <%if @event.picture.attached?%>
+    <%= image_tag @event.picture, alt: 'picture' %>
+  <%else%>
+    <p>=== No picture ===</p>
+  <%end%>
   <p class="p-2"><b>Organized by:</b> <%= @event.event_admin.email  %></p>
   <p class="p-2"><b>Start date and time:</b> <%= @event.start_date  %></p>
   <p class="p-2"><b>End date and time:</b> <%= @end_date_time  %></p>
