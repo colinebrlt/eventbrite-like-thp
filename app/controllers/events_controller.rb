@@ -1,5 +1,6 @@
 class EventsController < ApplicationController
-  before_action :authenticate_user!, only: [:new]
+  before_action :authenticate_user!, only: [:new, :create, :show, :edit]
+  before_action :is_admin?, only: [:edit]
 
   def index
     @event = Event.all
@@ -10,11 +11,10 @@ class EventsController < ApplicationController
   end 
 
   def create
-    @event = Event.new(post_params)
+    @event = Event.new(event_params)
     @event.event_admin = current_user
 
     if @event.save
-      flash[:notice] = 'All good. Your event has been saved!'
       redirect_to event_path(@event.id), success: "Your event has been successfully created!" 
     else
       render '/events/new'
@@ -28,7 +28,8 @@ class EventsController < ApplicationController
 
   private 
 
-  def post_params
-    post_params = params.require(:event).permit(:start_date, :title, :duration, :description, :price, :location)
+  def event_params
+    event_params = params.require(:event).permit(:start_date, :title, :duration, :description, :price, :location)
   end 
+
 end

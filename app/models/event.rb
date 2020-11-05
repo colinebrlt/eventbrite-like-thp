@@ -6,9 +6,9 @@ class Event < ApplicationRecord
   validates :price, presence: true, numericality: { greater_than_or_equal_to: 1, less_than_or_equal_to: 1000, only_integer: true }
   validates :location, presence: true
 
-  has_many :users, through: :attendances
-  has_many :attendances
   belongs_to :event_admin, class_name: "User"
+  has_many :attendances
+  has_many :users, through: :attendances
 
   def future_date
     errors.add(:start_date, "Event can't be in the past") unless

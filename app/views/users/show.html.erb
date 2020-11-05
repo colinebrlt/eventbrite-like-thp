@@ -4,20 +4,34 @@
   <p><b>Email:</b> <%= @user.email %></p>
   <p class="p-3"><b>Description:</b> <%= @user.description %></p>
 
-  <h5 class="p-4"> All events created by <%= @user.first_name %> <%= @user.last_name %> :</h5>
 
+  <%= link_to "Change your email and password", edit_user_registration_path, class: "nav-link btn btn-warning mx-2 my-2 w-50" %>
+  <br/>
+  <%= link_to "Edit your profile", edit_user_path(current_user), class: "nav-link btn btn-warning mx-2 my-2 w-50" %>
+  <br>
 
-  <div class="container">
-    <div class="row">
-      <% @admin_events.each do |event| %>
-        <div class="col-md-4">
-          <h2><%= event.title %></h2>
-          <p><%= truncate(event.description, length: 250) %> </p>
-          <p><a class="btn btn-secondary" href="#" role="button">Check it out &raquo;</a></p>
-        </div>
-      <% end %>
+  <h5 class="p-4"> You created the following events:</h5>
+
+  <% if current_user.admin_events.count > 0 %>
+
+    <div class="container">
+      <div class="row">
+        <% @admin_events.each do |event| %>
+          <div class="col-md-4">
+            <h2><%= event.title %></h2>
+            <p><%= truncate(event.description, length: 250) %> </p>
+            <p><a class="btn btn-secondary" href="#" role="button">Check it out &raquo;</a></p>
+          </div>
+        <% end %>
+      </div>
     </div>
-    <hr>
-  </div> 
+
+  <% else %>
+
+    <p>No event</p>
+  
+  <% end %>
+
+  <hr>
 
 </div>

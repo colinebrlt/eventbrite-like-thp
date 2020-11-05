@@ -1,0 +1,45 @@
+<div class="container text-center">
+  <br><br>
+  <h2>Bienvenue dans ton espace d'évènement : </h2>
+  <br>
+  <h3><%= @event.title %></h3>
+  <br>
+  <%= link_to "Éditer l'évènement", edit_event_path(@event), class: "d-inline p-2 btn btn-warning m-2" %>
+  <br><br><br>
+  <% if @event.users.count == 0 %>
+
+    <div class="card">
+      <h5 class="card-header">Aucune personne n'est inscrite pour le moment</h5>
+      <div class="card-body">
+
+      </div>
+    </div>
+    
+
+  <% else %>
+
+    <div class="card">
+      <h5 class="card-header">Liste de toutes les personnes inscrites</h5>
+      <div class="card-body">
+
+          <% @event.users.each do |user|%>
+            <div class="row">
+              <div class="col-sm col-lg-4">
+                <%= user.first_name %> <%= user.last_name %> plop
+              </div>
+              <div class="col-sm col-lg-5">
+                <%= user.email %>
+              </div>
+            </div>
+            <hr>
+          <% end %> 
+        
+      </div>
+    </div>
+  <% end %>
+
+  <br><br>
+
+  <%= link_to "Retour", :back, class: "btn btn-info" %>
+
+</div>

@@ -25,4 +25,4 @@ $ rails db:migrate
 $ rails server
 ```
 
-Alternatively, the website has also been pushed on Heroku: https://eventbrite-rails-cbrlt.herokuapp.com
+Alternatively, the website has also been pushed on Heroku: https://eventbrite-thp-colinebrlt.herokuapp.com/
