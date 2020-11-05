@@ -5,9 +5,8 @@
   <p class="p-3"><b>Description:</b> <%= @user.description %></p>
 
 
-  <%= link_to "Change your email and password", edit_user_registration_path, class: "nav-link btn btn-warning mx-2 my-2 w-50" %>
-  <br/>
-  <%= link_to "Edit your profile", edit_user_path(current_user), class: "nav-link btn btn-warning mx-2 my-2 w-50" %>
+  <%= link_to "Edit your email and password", edit_user_registration_path, class: "btn btn-warning mx-2 my-2 " %>
+  <%= link_to "Edit your personal informations", edit_user_path(current_user), class: "btn btn-warning mx-2 my-2" %>
   <br>
 
   <h5 class="p-4"> You created the following events:</h5>

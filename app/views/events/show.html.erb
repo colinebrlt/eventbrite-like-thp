@@ -9,14 +9,14 @@
   <p class="p-2"><b>Number of participants:</b> <%=  %></p>
   <p class="p-2"><b>Description:</b> <%= @event.description %></p>
 
-  <%= link_to "Home", root_path, class: "d-inline p-2 btn btn-primary m-2" %>
+  <%= link_to "Home", root_path, class: "btn btn-info" %>
     
   <% if @event.event_admin == current_user %>
-    <%= link_to "Admin event page", event_attendances_path(@event), class: "d-inline p-2 btn btn-warning m-2" %>
+    <%= link_to "Admin event page", event_attendances_path(@event), class: "btn btn-outline-info" %>
   <% elsif @event.users.select{ |user| user == current_user }.count == 0 %>
-    <%= link_to "Register to this event", new_event_attendance_path(@event), class: "d-inline p-2 btn btn-info m-2" %>
+    <%= link_to "Register to this event", new_event_attendance_path(@event), class: "btn btn-outline-info" %>
   <% else %>
-    <%= link_to "Already registered!", "#", class: "d-inline p-2 btn btn-light m-2 disabled" %>
+    <%= link_to "Already registered!", "#", class: "btn btn-outline-info disabled" %>
   <% end %>
 
 </div>
