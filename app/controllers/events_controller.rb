@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :show, :edit]
-  before_action :is_admin?, only: [:edit]
+  before_action :is_event_admin?, only: [:edit]
 
   def index
     @event = Event.all
@@ -26,10 +26,36 @@ class EventsController < ApplicationController
     @end_date_time = (@event.start_date + (@event.duration*60))
   end 
 
+  def edit
+  end
+
+  def update
+    @event = Event.find(params[:id])
+    if @event.update(event_params)
+      redirect_to event_path(@event.id), success: "Event successfully updated!"
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    Event.find(params[:id]).destroy
+    redirect_to user_path(current_user.id)
+  end
+
   private 
 
   def event_params
     event_params = params.require(:event).permit(:start_date, :title, :duration, :description, :price, :location)
   end 
+
+  def is_event_admin?
+    @event = Event.find(params[:id])
+    if @event.event_admin == current_user
+      return true
+    else
+      redirect_to event_path(@event), danger: "You didn't create this event"
+    end
+  end
 
 end
